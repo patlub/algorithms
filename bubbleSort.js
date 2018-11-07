@@ -14,5 +14,4 @@ function bubbleSort(list) {
 	return list
 }
 
-
 console.log("bubble sort", bubbleSort([6,3,7,9,1,4,8,2,]));
