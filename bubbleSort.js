@@ -1,10 +1,13 @@
 function bubbleSort(list) {
-	for(let j = 0; j < list.length; j++) {
-		for (let i = 0; i < list.length-1; i++) {
+	let swapped = true;
+	while(swapped){
+		swapped = false;
+		for( i = 0; i < list.length; i++){
 			if (list[i] > list[i + 1]) {
 				let temp = list[i];
 				list[i] = list[i + 1];
 				list[i + 1] = temp;
+				swapped = true;
 			}
 		}
 	}
