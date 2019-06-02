@@ -1,17 +1,18 @@
-function bubbleSort(list) {
-	let swapped = true;
-	while(swapped){
+function bubbleSort(array) {
+	let swapped;
+	do{
 		swapped = false;
-		for( i = 0; i < list.length; i++){
-			if (list[i] > list[i + 1]) {
-				let temp = list[i];
-				list[i] = list[i + 1];
-				list[i + 1] = temp;
-				swapped = true;
+		array.forEach((item, index) => {
+			if(item > array[index + 1]) {
+				let temp = item;
+				array[index] = array[index + 1];
+				array[index + 1] = temp;
+				swapped = true
 			}
-		}
-	}
-	return list
+		})
+
+	}while (swapped);
+	return array;
 }
 
-console.log("bubble sort", bubbleSort([6,3,7,9,1,4,8,2,]));
+console.log(bubbleSort([10,5,7,8,2,3,9,1]));

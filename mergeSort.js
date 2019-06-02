@@ -1,34 +1,27 @@
-// Split the array into halves and merge them recursively 
-function mergeSort (arr) {
-	if (arr.length === 1) {
-		// return once we hit an array with a single item
-		return arr
+
+function mergeSort(array) {
+	if(array.length < 2) {
+		return array
 	}
 
-	const middle = Math.floor(arr.length / 2); // get the middle item of the array rounded down
-	const left = arr.slice(0, middle); // items on the left side
-	const right = arr.slice(middle); // items on the right side
+	const middle = Math.floor(array.length / 2);
+	const left = array.slice(0, middle);
+	const right = array.slice(middle);
 
-	return merge(
-		mergeSort(left),
-		mergeSort(right)
-	)
+	return merge(mergeSort(left), mergeSort(right))
 }
 
-// compare the arrays item by item and return the concatenated result
-function merge (left, right) {
-	let result = [];
-	let indexLeft = 0;
-	let indexRight = 0;
+function merge(left, right) {
+	const sorted = [];
 
-	while (indexLeft < left.length && indexRight < right.length) {
-		if (left[indexLeft] < right[indexRight]) {
-			result.push(left[indexLeft]);
-			indexLeft++
+	while(left.length && right.length) {
+		if(left[0] <= right[0]) {
+			sorted.push(left.shift())
 		} else {
-			result.push(right[indexRight]);
-			indexRight++
+			sorted.push(right.shift())
 		}
 	}
-	return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+	return [...sorted, ...left, ...right]
 }
+
+console.log(mergeSort([10,5,7,8,2,3,9,1]));

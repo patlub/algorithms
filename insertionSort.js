@@ -1,14 +1,16 @@
-function insertionSort(list) {
-	for (let i = 0; i <list.length; i++) {
-		for (let j = i; j > 0; j--) {
-			if(list[j] < list[j-1]){
-				let temp = list[j-1];
-				list[j-1] = list[j];
-				list[j] = temp;
+function insertionSort(array) {
+	let i;
+	let j;
+
+	for (i = 1; i < array.length; i++){
+		for(j = 0; j < i; j++) {
+			if(array[i] < array[j]) {
+				const [item] = array.splice(i, 1);
+				array.splice(j, 0, item)
 			}
 		}
 	}
-	return list
+	return array
 }
 
-console.log("insertion sort", insertionSort([6,3,7,9,1,4,8,2,]));
+console.log(insertionSort([10,5,7,8,2,3,9,1]));
