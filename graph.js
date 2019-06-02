@@ -106,19 +106,19 @@ const graph = createGraph(true);
 
 graph.addNode('Jesus');
 graph.addNode('Patrick');
-graph.addNode('Kyle');
-graph.addNode('Anna');
-graph.addNode('Krios');
-graph.addNode('Tali');
+graph.addNode('Andela');
+graph.addNode('Kampala');
+graph.addNode('Uganda');
+graph.addNode('Africa');
 
 
 
 graph.addEdge('Patrick', 'Jesus');
 graph.addEdge('Jesus', 'Patrick');
-graph.addEdge('Kyle', 'Anna');
-graph.addEdge('Anna', 'Kyle');
-graph.addEdge('Kyle', 'Krios');
-graph.addEdge('Kyle', 'Tali');
+graph.addEdge('Andela', 'Kampala');
+graph.addEdge('Uganda', 'Kampala');
+graph.addEdge('Patrick', 'Uganda');
+graph.addEdge('Jesus', 'Uganda');
 
 console.log(graph.print());
 
